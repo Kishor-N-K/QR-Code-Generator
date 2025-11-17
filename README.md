@@ -6,8 +6,12 @@ UPI Card QR Generator
 A sleek, modern, and interactive UPI QR generator featuring a premium UI, smooth flip animations, and 3D tilt effects. This tool allows users to create secure UPI payment QR codes instantly — all processing happens locally inside the browser for complete privacy.
 
 📸 Screenshots
-![Front Screenshot](assets/front.png)
-![Back Screenshot](assets/back.png)
+<h3> Front Screenshot</h3>
+<img src="assets/front.png" width="300">
+
+<h3> Back Screenshot</h3>
+<img src="assets/back.png" width="300">
+
 
 
 🚀 Features
