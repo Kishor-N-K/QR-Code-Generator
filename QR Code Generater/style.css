@@ -1,0 +1,100 @@
+ /* Premium card styles (updated) */
+    :root{
+      --bg:#0b1020;
+      --card:#0f1724;
+      --glass: rgba(255,255,255,0.03);
+      --muted: #94a3b8;
+      --accent1: #7c3aed;
+      --accent2: #06b6d4;
+      --success: #10b981;
+      --radius:18px;
+      --card-w: 460px;
+      --card-h: 620px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      color: #e6eef8;
+    }
+
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071022 0%, #081428 100%);display:flex;align-items:center;justify-content:center}
+    .stage{width:100%;max-width:1100px;padding:36px;display:flex;gap:40px;align-items:center;justify-content:center}
+
+    /* Card container */
+    .card-wrap{perspective:1400px;width:var(--card-w);height:var(--card-h)}
+    .card{width:100%;height:100%;border-radius:var(--radius);position:relative;transform-style:preserve-3d;transition:transform 800ms cubic-bezier(.2,.9,.3,1);box-shadow:0 30px 80px rgba(2,6,23,0.7)}
+    .card.flipped{transform:rotateY(180deg)}
+
+    .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--radius);overflow:hidden}
+
+    /* front */
+    .front{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:24px;display:flex;flex-direction:column;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800}
+    .title{font-size:1.1rem;font-weight:800}
+    .subtitle{color:var(--muted);font-size:0.9rem}
+
+    /* single-column form specifics */
+    .form.single-col{margin-top:8px;display:flex;flex-direction:column}
+    .form.single-col .field-row{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+    .form.single-col label{font-weight:700;font-size:0.86rem;color:#cfe3ff}
+    .input{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:12px;outline:none;color:var(--muted);font-size:0.98rem}
+    .input.large{font-size:1.03rem;padding:14px}
+    .input:focus{box-shadow:0 10px 30px rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.6);color:#e6eef8}
+
+    .helper{font-size:0.82rem;color:var(--muted);margin-top:6px}
+
+    .actions{display:flex;gap:12px;margin-top:8px}
+    .actions.centered{justify-content:center}
+    .btn{padding:12px 14px;border-radius:12px;border:0;font-weight:800;cursor:pointer}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow:0 12px 30px rgba(124,58,237,0.12)}
+    .btn-primary[disabled]{opacity:0.5;cursor:not-allowed}
+
+    /* back */
+    .back{transform:rotateY(180deg);background:linear-gradient(180deg,#071129 0%, #07142a 100%);border:1px solid rgba(255,255,255,0.04);padding:22px;display:flex;flex-direction:column;align-items:center;gap:14px}
+    .scan-header{font-weight:900;font-size:1.2rem;letter-spacing:0.4px}
+    .qr-slot{width:320px;height:320px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)}
+    .back .meta{color:var(--muted);font-size:0.92rem;margin-top:6px;text-align:center}
+    .back .cta-row{display:flex;gap:12px;margin-top:12px}
+    .icon-btn{padding:10px 14px;border-radius:12px;border:0;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:800;cursor:pointer}
+
+    .help{margin-top:auto;color:var(--muted);font-size:0.82rem;text-align:center}
+    /* extra spacing between the back-side tips and the footer */
+.back .help {
+  margin-bottom: 25px; /* adjust this number if you want more/less space */
+}
+
+
+    /* card footer (bottom) */
+    .card-footer{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:12px;
+      text-align:center;
+      font-size:0.78rem;
+      color:var(--muted);
+      pointer-events:none; /* non-interactive so it won't block buttons */
+      -webkit-user-select:none;
+      user-select:none;
+    }
+    /* keep footer readable when card flips */
+.card-footer{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:12px;
+  text-align:center;
+  font-size:0.78rem;
+  color:var(--muted);
+  pointer-events:none;
+  user-select:none;
+  transform-origin:center center;
+  backface-visibility:hidden;               /* avoid showing backface when rotated */
+  transition: transform 420ms cubic-bezier(.2,.9,.3,1);
+}
+
+.card.flipped .card-footer{
+  transform: rotateY(180deg);
+}
+
+
+    @media (max-width:520px){:root{--card-w:360px;--card-h:700px}.qr-slot{width:280px;height:280px}}

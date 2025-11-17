@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Card </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+   <body>
+  <div class="stage">
+    <div class="card-wrap" aria-hidden="false">
+      <div class="card" id="card">
+
+        <!-- FRONT -->
+        <section class="face front" aria-label="UPI Card front — Enter details">
+          <div class="brand">
+            <div class="logo">UPI</div>
+            <div>
+              <div class="title">UPI Payment Card</div>
+              <div class="subtitle">Secure · Fast · Sleek</div>
+            </div>
+          </div>
+
+          <!-- Single-column form: all fields stacked with equal spacing -->
+          <form class="form single-col" id="form" onsubmit="return false;">
+
+            <div class="field-row">
+              <label for="inp-vpa">UPI ID (VPA)</label>
+              <input id="inp-vpa" class="input large" placeholder="e.g. alice@okaxis" autocomplete="off">
+              <div class="helper">Enter the payee's UPI ID. We keep this on your device.</div>
+            </div>
+
+            <div class="field-row">
+              <label for="inp-amount">Amount (INR)</label>
+              <input id="inp-amount" class="input" placeholder="100.00" inputmode="decimal">
+            </div>
+
+            <div class="field-row">
+              <label for="inp-name">Name</label>
+              <input id="inp-name" class="input" placeholder="Payee name (optional)">
+            </div>
+
+            <div class="field-row">
+              <label for="inp-purpose">Purpose</label>
+              <input id="inp-purpose" class="input" placeholder="Payment for dinner, invoice #123">
+            </div>
+
+            <div class="actions centered">
+              <button id="btn-clear" type="button" class="btn btn-ghost">Clear</button>
+              <button id="btn-generate" type="button" class="btn btn-primary" disabled>Generate QR Code</button>
+            </div>
+
+            <div class="note" style="text-align:center;color:var(--muted);font-size:0.82rem;margin-top:6px">All fields are kept on your device only. No data leaves your browser.</div>
+          </form>
+
+        </section>
+
+        <!-- BACK -->
+        <section class="face back" aria-label="UPI Card back — QR code">
+          <div class="scan-header">Scan and Pay</div>
+
+          <div class="qr-slot" id="qr-slot" title="QR code will appear here"></div>
+
+          <div class="meta" id="back-meta">Present this QR to the payer. They must confirm payment in their UPI app.</div>
+
+          <div class="cta-row">
+            <button id="btn-download" class="icon-btn">Download</button>
+            <button id="btn-share" class="icon-btn">Share</button>
+          </div>
+
+          <div class="help">Tip: Use 'Share' on mobile to send QR via messaging apps.</div>
+        </section>
+
+        <!-- Footer shown at bottom of card (appears on both front & back) -->
+        <div class="card-footer">Copyright © Kishor — All rights reserved.</div>
+
+      </div>
+    </div>
+  </div>
+ 
+</body>
+</html>
